@@ -1,0 +1,181 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 5,
+    "passes": 5,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-03-22T15:28:42.613Z",
+    "end": "2025-03-22T15:28:42.968Z",
+    "duration": 355,
+    "testsRegistered": 5,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "5b1e7e10-5e57-4f06-babb-113db48d767b",
+      "title": "",
+      "fullFile": "cypress\\e2e\\inventory.cy.js",
+      "file": "cypress\\e2e\\inventory.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "ad314e97-ddfc-4eb7-9eb3-fcc7cfa3e0f1",
+          "title": "Inventory API Tests",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should create a new item",
+              "fullTitle": "Inventory API Tests should create a new item",
+              "timedOut": null,
+              "duration": 82,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request('POST', baseUrl, {\n  name: 'Beef Stroganoff',\n  quantity: 25,\n  price: 19.99\n}).then(response => {\n  expect(response.status).to.eq(201);\n  expect(response.body).to.have.property('id');\n  expect(response.body.name).to.eq('Beef Stroganoff');\n});",
+              "err": {},
+              "uuid": "7257a8a6-2abe-4fc3-bf32-751d76710e8b",
+              "parentUUID": "ad314e97-ddfc-4eb7-9eb3-fcc7cfa3e0f1",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should retrieve all items",
+              "fullTitle": "Inventory API Tests should retrieve all items",
+              "timedOut": null,
+              "duration": 42,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request('GET', baseUrl).then(response => {\n  expect(response.status).to.eq(200);\n  expect(response.body).to.be.an('array');\n});",
+              "err": {},
+              "uuid": "8b535e11-223b-4b79-b0e7-f1c3c0655881",
+              "parentUUID": "ad314e97-ddfc-4eb7-9eb3-fcc7cfa3e0f1",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should retrieve a specific item",
+              "fullTitle": "Inventory API Tests should retrieve a specific item",
+              "timedOut": null,
+              "duration": 37,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request('POST', baseUrl, {\n  name: 'Chocolate Muffin',\n  quantity: 40,\n  price: 5.99\n}).then(postResponse => {\n  const itemId = postResponse.body.id;\n  cy.request('GET', `${baseUrl}/${itemId}`).then(response => {\n    expect(response.status).to.eq(200);\n    expect(response.body.name).to.eq('Chocolate Muffin');\n  });\n});",
+              "err": {},
+              "uuid": "da9d63b4-1c97-444a-a59d-457834c86898",
+              "parentUUID": "ad314e97-ddfc-4eb7-9eb3-fcc7cfa3e0f1",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should update an existing item",
+              "fullTitle": "Inventory API Tests should update an existing item",
+              "timedOut": null,
+              "duration": 38,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request('POST', baseUrl, {\n  name: 'Fruit Yoghurt',\n  quantity: 35,\n  price: 7.99\n}).then(postResponse => {\n  const itemId = postResponse.body.id;\n  cy.request('PUT', `${baseUrl}/${itemId}`, {\n    name: 'Updated Fruit Yoghurt',\n    quantity: 40,\n    price: 8.99\n  }).then(response => {\n    expect(response.status).to.eq(200);\n    expect(response.body.name).to.eq('Updated Fruit Yoghurt');\n  });\n});",
+              "err": {},
+              "uuid": "aef69e35-c352-4f66-bd63-d90d9c85571a",
+              "parentUUID": "ad314e97-ddfc-4eb7-9eb3-fcc7cfa3e0f1",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should delete an item",
+              "fullTitle": "Inventory API Tests should delete an item",
+              "timedOut": null,
+              "duration": 51,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request('POST', baseUrl, {\n  name: 'Gruyère Omelette',\n  quantity: 30,\n  price: 14.99\n}).then(postResponse => {\n  const itemId = postResponse.body.id;\n  cy.request('DELETE', `${baseUrl}/${itemId}`).then(response => {\n    expect(response.status).to.eq(204);\n    cy.request({\n      method: 'GET',\n      url: `${baseUrl}/${itemId}`,\n      failOnStatusCode: false\n    }).then(getResponse => {\n      expect(getResponse.status).to.eq(404);\n    });\n  });\n});",
+              "err": {},
+              "uuid": "6a9cb546-eeae-463b-8d34-f8dfc5554f39",
+              "parentUUID": "ad314e97-ddfc-4eb7-9eb3-fcc7cfa3e0f1",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "7257a8a6-2abe-4fc3-bf32-751d76710e8b",
+            "8b535e11-223b-4b79-b0e7-f1c3c0655881",
+            "da9d63b4-1c97-444a-a59d-457834c86898",
+            "aef69e35-c352-4f66-bd63-d90d9c85571a",
+            "6a9cb546-eeae-463b-8d34-f8dfc5554f39"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 250,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

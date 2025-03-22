@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cypress Test Dashboard</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; padding: 20px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { padding: 10px; border: 1px solid #ddd; text-align: left; }
+        th { background-color: #f4f4f4; }
+        .pass { color: green; font-weight: bold; }
+        .fail { color: red; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h2>Cypress Test Results</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Test Name</th>
+                <th>Status</th>
+                <th>Duration (ms)</th>
+            </tr>
+        </thead>
+        <tbody id="test-results">
+            <tr><td colspan="3">Loading test results...</td></tr>
+        </tbody>
+    </table>
+
+    <script>
+        async function loadTestResults() {
+            try {
+                const response = await fetch('cypress-results.json'); // Ensure this JSON file is generated
+                const data = await response.json();
+
+                const resultsTable = document.getElementById("test-results");
+                resultsTable.innerHTML = ""; 
+
+                data.tests.forEach(test => {
+                    const row = document.createElement("tr");
+
+                    const nameCell = document.createElement("td");
+                    nameCell.textContent = test.name;
+
+                    const statusCell = document.createElement("td");
+                    statusCell.textContent = test.state === "passed" ? "✔ Passed" : "✖ Failed";
+                    statusCell.className = test.state === "passed" ? "pass" : "fail";
+
+                    const durationCell = document.createElement("td");
+                    durationCell.textContent = test.duration;
+
+                    row.appendChild(nameCell);
+                    row.appendChild(statusCell);
+                    row.appendChild(durationCell);
+                    resultsTable.appendChild(row);
+                });
+            } catch (error) {
+                console.error("Error loading test results:", error);
+                document.getElementById("test-results").innerHTML = "<tr><td colspan='3'>Error loading results.</td></tr>";
+            }
+        }
+
+        loadTestResults();
+    </script>
+</body>
+</html>

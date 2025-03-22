@@ -1,0 +1,65 @@
+@font-face {
+    font-family: 'EmiratesFont'; /* Custom name for reference */
+    /* src: url('fonts/emirates-font.woff2') format('woff2'), */
+         /* url('fonts/emirates-font.woff') format('woff'), */
+    src: url('fonts/EmiratesEssentials-Medium.ttf') format('truetype');
+    font-weight: light;
+    font-style: normal;
+}
+
+body {
+    font-family: 'EmiratesFont', Arial, Helvetica, sans-serif;
+    margin: 20px;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.header {
+    display: flex;
+    gap: 10px;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: flex-start; /* Align to the left */
+}
+
+.menu-image {
+    /* margin: 6px auto; Center the image */
+    max-width: 80px; /* Adjust the size */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 10px; /* Optional: Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add shadow */
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    text-align: center;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    background-color: #F00;
+    color: white;
+    padding: 5px;  /* Reduce padding */
+    font-size: 14px; /* Reduce font size */
+}

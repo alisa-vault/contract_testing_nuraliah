@@ -1,0 +1,201 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 5,
+    "passes": 0,
+    "pending": 0,
+    "failures": 5,
+    "start": "2025-03-22T16:04:10.383Z",
+    "end": "2025-03-22T16:04:12.254Z",
+    "duration": 1871,
+    "testsRegistered": 5,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "f27152f9-f9a3-46bf-8c4f-74cae8ad53d5",
+      "title": "",
+      "fullFile": "cypress\\e2e\\inventory.cy.js",
+      "file": "cypress\\e2e\\inventory.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "93ede30b-a4b6-4c61-82a8-382dfbd00b71",
+          "title": "Inventory API Tests",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should create a new item",
+              "fullTitle": "Inventory API Tests should create a new item",
+              "timedOut": null,
+              "duration": 557,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.request('POST', baseUrl, {\n  name: 'Beef Stroganoff',\n  quantity: 25,\n  price: 19.99\n}).then(response => {\n  expect(response.status).to.eq(201);\n  expect(response.body).to.have.property('id');\n  expect(response.body.name).to.eq('Beef Stroganoff');\n});",
+              "err": {
+                "message": "CypressError: `cy.request()` failed on:\n\nhttp://localhost:3000/items\n\nThe response we received from your web server was:\n\n  > 404: Not Found\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: POST\nURL: http://localhost:3000/items\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"user-agent\": \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/14.2.0 Chrome/130.0.6723.137 Electron/33.2.1 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\",\n  \"content-type\": \"application/json\",\n  \"content-length\": 54\n}\nBody: {\"name\":\"Beef Stroganoff\",\"quantity\":25,\"price\":19.99}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 404 - Not Found\nHeaders: {\n  \"x-powered-by\": \"Express\",\n  \"content-security-policy\": \"default-src 'none'\",\n  \"x-content-type-options\": \"nosniff\",\n  \"content-type\": \"text/html; charset=utf-8\",\n  \"content-length\": \"145\",\n  \"date\": \"Sat, 22 Mar 2025 16:04:10 GMT\",\n  \"connection\": \"keep-alive\",\n  \"keep-alive\": \"timeout=5\"\n}\nBody: <!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n<title>Error</title>\n</head>\n<body>\n<pre>Cannot POST /items</pre>\n</body>\n</html>\n\nhttps://on.cypress.io/request",
+                "estack": "CypressError: `cy.request()` failed on:\n\nhttp://localhost:3000/items\n\nThe response we received from your web server was:\n\n  > 404: Not Found\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: POST\nURL: http://localhost:3000/items\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"user-agent\": \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/14.2.0 Chrome/130.0.6723.137 Electron/33.2.1 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\",\n  \"content-type\": \"application/json\",\n  \"content-length\": 54\n}\nBody: {\"name\":\"Beef Stroganoff\",\"quantity\":25,\"price\":19.99}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 404 - Not Found\nHeaders: {\n  \"x-powered-by\": \"Express\",\n  \"content-security-policy\": \"default-src 'none'\",\n  \"x-content-type-options\": \"nosniff\",\n  \"content-type\": \"text/html; charset=utf-8\",\n  \"content-length\": \"145\",\n  \"date\": \"Sat, 22 Mar 2025 16:04:10 GMT\",\n  \"connection\": \"keep-alive\",\n  \"keep-alive\": \"timeout=5\"\n}\nBody: <!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n<title>Error</title>\n</head>\n<body>\n<pre>Cannot POST /items</pre>\n</body>\n</html>\n\nhttps://on.cypress.io/request\n    at <unknown> (http://localhost:3000/__cypress/runner/cypress_runner.js:133638:72)\n    at tryCatcher (http://localhost:3000/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise._settlePromiseFromHandler (http://localhost:3000/__cypress/runner/cypress_runner.js:1489:31)\n    at Promise._settlePromise (http://localhost:3000/__cypress/runner/cypress_runner.js:1546:18)\n    at Promise._settlePromise0 (http://localhost:3000/__cypress/runner/cypress_runner.js:1591:10)\n    at Promise._settlePromises (http://localhost:3000/__cypress/runner/cypress_runner.js:1671:18)\n    at _drainQueueStep (http://localhost:3000/__cypress/runner/cypress_runner.js:2377:12)\n    at _drainQueue (http://localhost:3000/__cypress/runner/cypress_runner.js:2370:9)\n    at Async._drainQueues (http://localhost:3000/__cypress/runner/cypress_runner.js:2386:5)\n    at Async.drainQueues (http://localhost:3000/__cypress/runner/cypress_runner.js:2256:14)\nFrom Your Spec Code:\n    at Context.eval (webpack://cypress/./cypress/e2e/inventory.cy.js:5:11)",
+                "diff": null
+              },
+              "uuid": "9e6cc6b0-8e0e-4b4a-81a8-930de493f797",
+              "parentUUID": "93ede30b-a4b6-4c61-82a8-382dfbd00b71",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should retrieve all items",
+              "fullTitle": "Inventory API Tests should retrieve all items",
+              "timedOut": null,
+              "duration": 392,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.request('GET', baseUrl).then(response => {\n  expect(response.status).to.eq(200);\n  expect(response.body).to.be.an('array');\n});",
+              "err": {
+                "message": "CypressError: `cy.request()` failed on:\n\nhttp://localhost:3000/items\n\nThe response we received from your web server was:\n\n  > 404: Not Found\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: GET\nURL: http://localhost:3000/items\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"user-agent\": \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/14.2.0 Chrome/130.0.6723.137 Electron/33.2.1 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\"\n}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 404 - Not Found\nHeaders: {\n  \"x-powered-by\": \"Express\",\n  \"content-security-policy\": \"default-src 'none'\",\n  \"x-content-type-options\": \"nosniff\",\n  \"content-type\": \"text/html; charset=utf-8\",\n  \"content-length\": \"144\",\n  \"date\": \"Sat, 22 Mar 2025 16:04:11 GMT\",\n  \"connection\": \"keep-alive\",\n  \"keep-alive\": \"timeout=5\"\n}\nBody: <!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n<title>Error</title>\n</head>\n<body>\n<pre>Cannot GET /items</pre>\n</body>\n</html>\n\nhttps://on.cypress.io/request",
+                "estack": "CypressError: `cy.request()` failed on:\n\nhttp://localhost:3000/items\n\nThe response we received from your web server was:\n\n  > 404: Not Found\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: GET\nURL: http://localhost:3000/items\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"user-agent\": \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/14.2.0 Chrome/130.0.6723.137 Electron/33.2.1 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\"\n}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 404 - Not Found\nHeaders: {\n  \"x-powered-by\": \"Express\",\n  \"content-security-policy\": \"default-src 'none'\",\n  \"x-content-type-options\": \"nosniff\",\n  \"content-type\": \"text/html; charset=utf-8\",\n  \"content-length\": \"144\",\n  \"date\": \"Sat, 22 Mar 2025 16:04:11 GMT\",\n  \"connection\": \"keep-alive\",\n  \"keep-alive\": \"timeout=5\"\n}\nBody: <!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n<title>Error</title>\n</head>\n<body>\n<pre>Cannot GET /items</pre>\n</body>\n</html>\n\nhttps://on.cypress.io/request\n    at <unknown> (http://localhost:3000/__cypress/runner/cypress_runner.js:133638:72)\n    at tryCatcher (http://localhost:3000/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise._settlePromiseFromHandler (http://localhost:3000/__cypress/runner/cypress_runner.js:1489:31)\n    at Promise._settlePromise (http://localhost:3000/__cypress/runner/cypress_runner.js:1546:18)\n    at Promise._settlePromise0 (http://localhost:3000/__cypress/runner/cypress_runner.js:1591:10)\n    at Promise._settlePromises (http://localhost:3000/__cypress/runner/cypress_runner.js:1671:18)\n    at _drainQueueStep (http://localhost:3000/__cypress/runner/cypress_runner.js:2377:12)\n    at _drainQueue (http://localhost:3000/__cypress/runner/cypress_runner.js:2370:9)\n    at Async._drainQueues (http://localhost:3000/__cypress/runner/cypress_runner.js:2386:5)\n    at Async.drainQueues (http://localhost:3000/__cypress/runner/cypress_runner.js:2256:14)\nFrom Your Spec Code:\n    at Context.eval (webpack://cypress/./cypress/e2e/inventory.cy.js:17:11)",
+                "diff": null
+              },
+              "uuid": "f90bb4c8-690e-4be2-bed7-bfb3921e6be3",
+              "parentUUID": "93ede30b-a4b6-4c61-82a8-382dfbd00b71",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should retrieve a specific item",
+              "fullTitle": "Inventory API Tests should retrieve a specific item",
+              "timedOut": null,
+              "duration": 199,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.request('POST', baseUrl, {\n  name: 'Chocolate Muffin',\n  quantity: 40,\n  price: 5.99\n}).then(postResponse => {\n  const itemId = postResponse.body.id;\n  cy.request('GET', `${baseUrl}/${itemId}`).then(response => {\n    expect(response.status).to.eq(200);\n    expect(response.body.name).to.eq('Chocolate Muffin');\n  });\n});",
+              "err": {
+                "message": "CypressError: `cy.request()` failed on:\n\nhttp://localhost:3000/items\n\nThe response we received from your web server was:\n\n  > 404: Not Found\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: POST\nURL: http://localhost:3000/items\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"user-agent\": \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/14.2.0 Chrome/130.0.6723.137 Electron/33.2.1 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\",\n  \"content-type\": \"application/json\",\n  \"content-length\": 54\n}\nBody: {\"name\":\"Chocolate Muffin\",\"quantity\":40,\"price\":5.99}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 404 - Not Found\nHeaders: {\n  \"x-powered-by\": \"Express\",\n  \"content-security-policy\": \"default-src 'none'\",\n  \"x-content-type-options\": \"nosniff\",\n  \"content-type\": \"text/html; charset=utf-8\",\n  \"content-length\": \"145\",\n  \"date\": \"Sat, 22 Mar 2025 16:04:11 GMT\",\n  \"connection\": \"keep-alive\",\n  \"keep-alive\": \"timeout=5\"\n}\nBody: <!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n<title>Error</title>\n</head>\n<body>\n<pre>Cannot POST /items</pre>\n</body>\n</html>\n\nhttps://on.cypress.io/request",
+                "estack": "CypressError: `cy.request()` failed on:\n\nhttp://localhost:3000/items\n\nThe response we received from your web server was:\n\n  > 404: Not Found\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: POST\nURL: http://localhost:3000/items\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"user-agent\": \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/14.2.0 Chrome/130.0.6723.137 Electron/33.2.1 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\",\n  \"content-type\": \"application/json\",\n  \"content-length\": 54\n}\nBody: {\"name\":\"Chocolate Muffin\",\"quantity\":40,\"price\":5.99}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 404 - Not Found\nHeaders: {\n  \"x-powered-by\": \"Express\",\n  \"content-security-policy\": \"default-src 'none'\",\n  \"x-content-type-options\": \"nosniff\",\n  \"content-type\": \"text/html; charset=utf-8\",\n  \"content-length\": \"145\",\n  \"date\": \"Sat, 22 Mar 2025 16:04:11 GMT\",\n  \"connection\": \"keep-alive\",\n  \"keep-alive\": \"timeout=5\"\n}\nBody: <!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n<title>Error</title>\n</head>\n<body>\n<pre>Cannot POST /items</pre>\n</body>\n</html>\n\nhttps://on.cypress.io/request\n    at <unknown> (http://localhost:3000/__cypress/runner/cypress_runner.js:133638:72)\n    at tryCatcher (http://localhost:3000/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise._settlePromiseFromHandler (http://localhost:3000/__cypress/runner/cypress_runner.js:1489:31)\n    at Promise._settlePromise (http://localhost:3000/__cypress/runner/cypress_runner.js:1546:18)\n    at Promise._settlePromise0 (http://localhost:3000/__cypress/runner/cypress_runner.js:1591:10)\n    at Promise._settlePromises (http://localhost:3000/__cypress/runner/cypress_runner.js:1671:18)\n    at _drainQueueStep (http://localhost:3000/__cypress/runner/cypress_runner.js:2377:12)\n    at _drainQueue (http://localhost:3000/__cypress/runner/cypress_runner.js:2370:9)\n    at Async._drainQueues (http://localhost:3000/__cypress/runner/cypress_runner.js:2386:5)\n    at Async.drainQueues (http://localhost:3000/__cypress/runner/cypress_runner.js:2256:14)\nFrom Your Spec Code:\n    at Context.eval (webpack://cypress/./cypress/e2e/inventory.cy.js:24:11)",
+                "diff": null
+              },
+              "uuid": "9bf9ce72-3217-4002-b047-5da829e2a47e",
+              "parentUUID": "93ede30b-a4b6-4c61-82a8-382dfbd00b71",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should update an existing item",
+              "fullTitle": "Inventory API Tests should update an existing item",
+              "timedOut": null,
+              "duration": 235,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.request('POST', baseUrl, {\n  name: 'Fruit Yoghurt',\n  quantity: 35,\n  price: 7.99\n}).then(postResponse => {\n  const itemId = postResponse.body.id;\n  cy.request('PUT', `${baseUrl}/${itemId}`, {\n    name: 'Updated Fruit Yoghurt',\n    quantity: 40,\n    price: 8.99\n  }).then(response => {\n    expect(response.status).to.eq(200);\n    expect(response.body.name).to.eq('Updated Fruit Yoghurt');\n  });\n});",
+              "err": {
+                "message": "CypressError: `cy.request()` failed on:\n\nhttp://localhost:3000/items\n\nThe response we received from your web server was:\n\n  > 404: Not Found\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: POST\nURL: http://localhost:3000/items\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"user-agent\": \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/14.2.0 Chrome/130.0.6723.137 Electron/33.2.1 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\",\n  \"content-type\": \"application/json\",\n  \"content-length\": 51\n}\nBody: {\"name\":\"Fruit Yoghurt\",\"quantity\":35,\"price\":7.99}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 404 - Not Found\nHeaders: {\n  \"x-powered-by\": \"Express\",\n  \"content-security-policy\": \"default-src 'none'\",\n  \"x-content-type-options\": \"nosniff\",\n  \"content-type\": \"text/html; charset=utf-8\",\n  \"content-length\": \"145\",\n  \"date\": \"Sat, 22 Mar 2025 16:04:11 GMT\",\n  \"connection\": \"keep-alive\",\n  \"keep-alive\": \"timeout=5\"\n}\nBody: <!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n<title>Error</title>\n</head>\n<body>\n<pre>Cannot POST /items</pre>\n</body>\n</html>\n\nhttps://on.cypress.io/request",
+                "estack": "CypressError: `cy.request()` failed on:\n\nhttp://localhost:3000/items\n\nThe response we received from your web server was:\n\n  > 404: Not Found\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: POST\nURL: http://localhost:3000/items\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"user-agent\": \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/14.2.0 Chrome/130.0.6723.137 Electron/33.2.1 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\",\n  \"content-type\": \"application/json\",\n  \"content-length\": 51\n}\nBody: {\"name\":\"Fruit Yoghurt\",\"quantity\":35,\"price\":7.99}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 404 - Not Found\nHeaders: {\n  \"x-powered-by\": \"Express\",\n  \"content-security-policy\": \"default-src 'none'\",\n  \"x-content-type-options\": \"nosniff\",\n  \"content-type\": \"text/html; charset=utf-8\",\n  \"content-length\": \"145\",\n  \"date\": \"Sat, 22 Mar 2025 16:04:11 GMT\",\n  \"connection\": \"keep-alive\",\n  \"keep-alive\": \"timeout=5\"\n}\nBody: <!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n<title>Error</title>\n</head>\n<body>\n<pre>Cannot POST /items</pre>\n</body>\n</html>\n\nhttps://on.cypress.io/request\n    at <unknown> (http://localhost:3000/__cypress/runner/cypress_runner.js:133638:72)\n    at tryCatcher (http://localhost:3000/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise._settlePromiseFromHandler (http://localhost:3000/__cypress/runner/cypress_runner.js:1489:31)\n    at Promise._settlePromise (http://localhost:3000/__cypress/runner/cypress_runner.js:1546:18)\n    at Promise._settlePromise0 (http://localhost:3000/__cypress/runner/cypress_runner.js:1591:10)\n    at Promise._settlePromises (http://localhost:3000/__cypress/runner/cypress_runner.js:1671:18)\n    at _drainQueueStep (http://localhost:3000/__cypress/runner/cypress_runner.js:2377:12)\n    at _drainQueue (http://localhost:3000/__cypress/runner/cypress_runner.js:2370:9)\n    at Async._drainQueues (http://localhost:3000/__cypress/runner/cypress_runner.js:2386:5)\n    at Async.drainQueues (http://localhost:3000/__cypress/runner/cypress_runner.js:2256:14)\nFrom Your Spec Code:\n    at Context.eval (webpack://cypress/./cypress/e2e/inventory.cy.js:38:11)",
+                "diff": null
+              },
+              "uuid": "b297a162-9b9f-48d9-81a7-2630ac9c1fd6",
+              "parentUUID": "93ede30b-a4b6-4c61-82a8-382dfbd00b71",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should delete an item",
+              "fullTitle": "Inventory API Tests should delete an item",
+              "timedOut": null,
+              "duration": 218,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.request('POST', baseUrl, {\n  name: 'Gruyère Omelette',\n  quantity: 30,\n  price: 14.99\n}).then(postResponse => {\n  const itemId = postResponse.body.id;\n  cy.request('DELETE', `${baseUrl}/${itemId}`).then(response => {\n    expect(response.status).to.eq(204);\n    cy.request({\n      method: 'GET',\n      url: `${baseUrl}/${itemId}`,\n      failOnStatusCode: false\n    }).then(getResponse => {\n      expect(getResponse.status).to.eq(404);\n    });\n  });\n});",
+              "err": {
+                "message": "CypressError: `cy.request()` failed on:\n\nhttp://localhost:3000/items\n\nThe response we received from your web server was:\n\n  > 404: Not Found\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: POST\nURL: http://localhost:3000/items\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"user-agent\": \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/14.2.0 Chrome/130.0.6723.137 Electron/33.2.1 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\",\n  \"content-type\": \"application/json\",\n  \"content-length\": 56\n}\nBody: {\"name\":\"Gruyère Omelette\",\"quantity\":30,\"price\":14.99}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 404 - Not Found\nHeaders: {\n  \"x-powered-by\": \"Express\",\n  \"content-security-policy\": \"default-src 'none'\",\n  \"x-content-type-options\": \"nosniff\",\n  \"content-type\": \"text/html; charset=utf-8\",\n  \"content-length\": \"145\",\n  \"date\": \"Sat, 22 Mar 2025 16:04:12 GMT\",\n  \"connection\": \"keep-alive\",\n  \"keep-alive\": \"timeout=5\"\n}\nBody: <!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n<title>Error</title>\n</head>\n<body>\n<pre>Cannot POST /items</pre>\n</body>\n</html>\n\nhttps://on.cypress.io/request",
+                "estack": "CypressError: `cy.request()` failed on:\n\nhttp://localhost:3000/items\n\nThe response we received from your web server was:\n\n  > 404: Not Found\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: POST\nURL: http://localhost:3000/items\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"user-agent\": \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/14.2.0 Chrome/130.0.6723.137 Electron/33.2.1 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\",\n  \"content-type\": \"application/json\",\n  \"content-length\": 56\n}\nBody: {\"name\":\"Gruyère Omelette\",\"quantity\":30,\"price\":14.99}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 404 - Not Found\nHeaders: {\n  \"x-powered-by\": \"Express\",\n  \"content-security-policy\": \"default-src 'none'\",\n  \"x-content-type-options\": \"nosniff\",\n  \"content-type\": \"text/html; charset=utf-8\",\n  \"content-length\": \"145\",\n  \"date\": \"Sat, 22 Mar 2025 16:04:12 GMT\",\n  \"connection\": \"keep-alive\",\n  \"keep-alive\": \"timeout=5\"\n}\nBody: <!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n<title>Error</title>\n</head>\n<body>\n<pre>Cannot POST /items</pre>\n</body>\n</html>\n\nhttps://on.cypress.io/request\n    at <unknown> (http://localhost:3000/__cypress/runner/cypress_runner.js:133638:72)\n    at tryCatcher (http://localhost:3000/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise._settlePromiseFromHandler (http://localhost:3000/__cypress/runner/cypress_runner.js:1489:31)\n    at Promise._settlePromise (http://localhost:3000/__cypress/runner/cypress_runner.js:1546:18)\n    at Promise._settlePromise0 (http://localhost:3000/__cypress/runner/cypress_runner.js:1591:10)\n    at Promise._settlePromises (http://localhost:3000/__cypress/runner/cypress_runner.js:1671:18)\n    at _drainQueueStep (http://localhost:3000/__cypress/runner/cypress_runner.js:2377:12)\n    at _drainQueue (http://localhost:3000/__cypress/runner/cypress_runner.js:2370:9)\n    at Async._drainQueues (http://localhost:3000/__cypress/runner/cypress_runner.js:2386:5)\n    at Async.drainQueues (http://localhost:3000/__cypress/runner/cypress_runner.js:2256:14)\nFrom Your Spec Code:\n    at Context.eval (webpack://cypress/./cypress/e2e/inventory.cy.js:56:11)",
+                "diff": null
+              },
+              "uuid": "f3022996-bef8-41d0-9a99-eea223bd9747",
+              "parentUUID": "93ede30b-a4b6-4c61-82a8-382dfbd00b71",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "9e6cc6b0-8e0e-4b4a-81a8-930de493f797",
+            "f90bb4c8-690e-4be2-bed7-bfb3921e6be3",
+            "9bf9ce72-3217-4002-b047-5da829e2a47e",
+            "b297a162-9b9f-48d9-81a7-2630ac9c1fd6",
+            "f3022996-bef8-41d0-9a99-eea223bd9747"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 1601,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
