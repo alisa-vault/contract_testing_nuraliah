@@ -9,7 +9,6 @@ const inventory = {
     "4": { id: "4", name: "Gruyère Omelette", quantity: 30, price: 14.99 }
 };
 
-// Create Item endpoint
 router.post('/', (req, res) => {
     const { name, quantity, price } = req.body;
 
@@ -26,8 +25,7 @@ router.post('/', (req, res) => {
     res.status(201).json(newItem);
 });
 
-// Get Item by ID endpoint
-router.get('/:id?', (req, res) => {
+router.get('/:id?', (req, res) => { // get, either specific id or all
     const { id } = req.params;
     
     if (id) {
@@ -41,8 +39,8 @@ router.get('/:id?', (req, res) => {
     res.status(200).json(Object.values(inventory));
 });
 
-// Update Item endpoint
-router.put('/:id', (req, res) => {
+
+router.put('/:id', (req, res) => {  // update
     const { id } = req.params;
     const { name, quantity, price } = req.body;
 
@@ -60,7 +58,6 @@ router.put('/:id', (req, res) => {
     res.status(200).json(inventory[id]);
 });
 
-// Delete Item endpoint
 router.delete('/:id', (req, res) => {
     const { id } = req.params;
 

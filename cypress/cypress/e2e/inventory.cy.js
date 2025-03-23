@@ -3,13 +3,13 @@ describe('Inventory API Tests', () => {
 
     it('should create a new item', () => {
         cy.request('POST', baseUrl, {
-            name: 'Beef Stroganoff',
+            name: 'Chocolate Mango Tart',
             quantity: 25,
             price: 19.99
         }).then(response => {
             expect(response.status).to.eq(201);
             expect(response.body).to.have.property('id');
-            expect(response.body.name).to.eq('Beef Stroganoff');
+            expect(response.body.name).to.eq('Chocolate Mango Tart');
         });
     });
 

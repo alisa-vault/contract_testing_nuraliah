@@ -16,7 +16,7 @@ body {
 
 .header {
     display: flex;
-    gap: 10px;
+    gap: 18px;
     flex-wrap: nowrap;
     flex-direction: row;
     align-items: flex-end;
@@ -58,8 +58,9 @@ th, td {
 }
 
 th {
-    background-color: #F00;
+    background-color: #D71A21;
     color: white;
     padding: 5px;  /* Reduce padding */
-    font-size: 14px; /* Reduce font size */
+    font-size: 15px; /* Reduce font size */
+    font-weight: 200;
 }
